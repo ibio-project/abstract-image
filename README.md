@@ -6,12 +6,12 @@ As of April 15, 2021, this project is under construction.
 First release will be published around the middle of May.
 
 Project plan:
-1. Template HTML and test form to fill it is done.
-2. Ajax retriever to fill the template is done.
-3. Data retriever from Google Forms is done.
+1. Template HTML and test form to fill it.
+2. Ajax retriever to fill the template.
+3. Data retriever from Google Forms.
 4. Callback functionality for Google Forms.
 5. Payment service is attached.
-6. Multiple layout for publishing *Abstract book* is done.
+6. Multiple layout for publishing *Abstract book*.
 
 HTML templates needed:
 1. Abstract image format.
