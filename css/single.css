@@ -1,0 +1,74 @@
+/* page settings */
+@page { size: A4; margin: 0; }
+
+/* print image */
+table.print {
+    position: absolute;
+    top: 25mm;
+    left: 15mm;
+    /* width: 185mm;*/
+    width: 87mm
+    height: 254.6mm;
+    margin: 0 0 0 0;
+    /* margin: -127.3mm 0 0 -86.4mm; */
+    border-collapse: collapse;
+    border: 1px #2222 solid;
+}
+
+table.print .iblock { display: inline-block; } 
+
+table.print td {
+    vertical-align: top;
+    position: relative;
+    border: none; /*1px solid; */
+    border-color: white;
+    border-collapse: separate;
+    border-spacing: 0 0;
+}
+
+table.print caption {
+    font-size: 20pt;
+}
+
+table.print p {
+    margin: .7mm;
+    font-size: 12pt;
+    font-family: serif;
+    width: 85.0mm;
+}
+
+table.print p.slot {
+    top: 0mm;
+    left: 0mm;
+    font-size: 10pt;
+    font-family: sans-serif;
+    background-color: #fefcfc;
+}
+
+table.print p.title {
+    top: 0mm;
+    left: 50mm;
+    height: 8.2mm;
+    font-size: 10pt;
+    font-family: sans-serif;
+}
+
+table.print p.authors {
+    height: 8.2mm;
+    font-size: 8pt;
+    font-family: sans-serif;
+}
+
+table.print p.affiliation {
+    height: 8.2mm;
+    font-size: 8pt;
+    font-family: sans-serif;
+}
+
+table.print p.description {
+    margin-top: 0.5em;
+    height: 94mm;
+    font-size: 10pt;
+    font-family: serif;
+}
+

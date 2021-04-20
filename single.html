@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Print Image</title>
+<!--    <link rel="stylesheet" href="css/paper.css"> -->
+    <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+    <!-- Normalize CSS for the common view across platforms -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/7.0.0/normalize.min.css">
+    <link rel="stylesheet" href="css/single.css?ver=15">
+  </head>
+
+  <body class="A4">
+    <section class="sheet" id="baseSheet">
+      <table class="print">
+	<thead><caption>印刷イメージ</caption></thead>
+	<tbody>
+          <tr>
+            <td>
+              <div class="data">
+		<!-- 開発時確認用 -->
+                <p class="slot">
+		  9N-00
+		</p>
+                <p class="title">
+		  タイトル
+		</p>
+                <p class="authors">
+		  *遺伝　学[1], 遺伝 理科子[2]
+		</p>
+                <p class="affiliation">
+		  [1] 日本遺伝学会大学, [2] 国立遺伝学研究所
+		</p>
+                <p class="description">
+		  ここに要旨が入ります。
+		  編集段階では、字数や
+		  上付き、下付き、斜体、太字などのチェックは
+		  一切行いません。枠内に収まっているか、
+		  字体等は正しいかなど、自身でお確め下さい。
+		  このまま印刷およびPDF化されます。
+		</p>
+            <td></td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+            crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
+    <script type="text/javascript">
+      $(document).ready(function () {
+
+          // 親ウィンドウからデータ取得
+          var datalist = window.opener.datalist;
+	  const slots_per_page = 4;
+
+          // 必要数のページを追加
+          var sheets = Math.ceil(datalist.length / slots_per_page );
+          _.times(sheets - 1, function () {
+              $('BODY').append($('#baseSheet').prop('outerHTML'))
+          })
+
+          // underscore.js のテンプレート機能でテーブルのセルにデータを流し込む
+          var compiled = _.template(
+	      '<div class="data">'+
+		  '<p class="slot"><%= data.slot %></p>' +
+		  '<p class="title"><%= data.title %></p>'+
+		  '<p class="authors"><%= data.authors %></p>' +
+		  '<p class="affiliation"><%= data.affiliation %></p>' +
+		  '<p class="description"><%= data.summary %></p>' +
+		  '</div>')
+
+          var cell = $('table.print td');
+          _.each(datalist, function (data, i) {
+              $(cell[i]).html(compiled({
+                  "data": data
+              }));
+          })
+
+          // 印刷画面を自動的に表示。閉じると自動的にウィンドウも閉じる。
+          setTimeout(function () {
+              window.print();
+              window.close();
+          }, 1000);
+      })
+      </script>
+  </body>
+
+</html>
