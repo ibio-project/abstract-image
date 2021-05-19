@@ -1,0 +1,9 @@
+発表演題（全角50字）/ Title	title
+著者リスト / Author list	authors
+所属リスト（全角100字）/ Affiliation	affiliation
+Title / 英文タイトル（半角100字）	title_e
+Author list / 英文著者リスト 	authors_e
+Affiliation / 英文所属リスト	affiliation_e
+要旨 / Abstract	abstract
+分野 / Research area	field
+キーワード (３つ以内) / Key words (up to 3)	keywords
