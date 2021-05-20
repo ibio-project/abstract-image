@@ -1,5 +1,8 @@
 // preview field data and store in cookie
 
+const fs = "title authors affiliation summary";
+let fields = fs.split(' ');
+
 // replace newline to linebreak
 let nl = function(a) {
     const regex=/\n/g;
@@ -29,10 +32,17 @@ let on_input = function(a) {
     });
 }
 
+let reset_form = function() {
+    for (f of fields) {
+	let t='';
+	$('#i_'+f).val(t);  // input frame
+	$('p.'+f).html(t);   // preview frame
+	Cookies.set(f,t);
+    }
+}
+
 // get cookies to set in fields
-const fields = "title authors affiliation summary";
-fs = fields.split(' ');
-for (f of fs) {
+for (f of fields) {
     let c = Cookies.get(f);
     on_input(f);  // set behavior on change
     if (c) {
