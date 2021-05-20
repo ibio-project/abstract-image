@@ -38,7 +38,7 @@ table.print td {
     background-color: #fefffe;
 }
 
-table.print caption {
+table caption {
     font-size: 20pt;
     height: 15mm;
 }
