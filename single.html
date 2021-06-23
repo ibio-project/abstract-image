@@ -23,9 +23,9 @@
 		<td>
                   <div class="data">
                     <p class="slot">9X-99</p>
-                    <p class="title">タイトル</p>
-                    <p class="authors">*遺伝　学[1], 遺伝 理科子[2]</p>
-                    <p class="affiliation">[1]日本遺伝学会大学,[2]国立遺伝学研究所</p>
+                    <p class="title">あなたのタイトル</p>
+                    <p class="authors">○発表者<sup>1,2</sup>, 著者B<sup>2</sup>,..</p>
+                    <p class="affiliation"><sup>1</sup>日本遺伝学大学, <sup>2</sup>国立遺伝学研究所</p>
                     <p class="summary">
 		      これとほぼ同じ形式で印刷およびPDF化されます。
 		      （実際のレイアウトとは若干異なる場合があります）
@@ -42,11 +42,14 @@
 	
         <!-- input frame -->
 	<div class="col-xs-6">
+          <p>※タイトルが著者欄に重なる場合はお知らせ下さい。<br>
+			要旨集作成時に修正対応します。</p>
 	  <!--クリアボタン-->
-	  <p>データはお使いのPCに保存され、次回も表示されます。<br>
-	    他のPCには表示されませんが、保存したくない場合は<br>
-	    [クリア]ボタンをクリックしてください。<br>
-	    <button type="button" onclick='reset_form()'>クリア</Button>
+	  <p>データはお使いのPCにcookieとして保存され、次回も表示されます。<br>
+	    他者のPCには表示されませんが、保存したくない場合は終了時に<br>
+	    [データクリア]ボタンをクリックしてください。<br>
+	    <button type="button" onclick='reset_form()'>データクリア</Button>
+	    ※クリアすると復元できません。<br>
 	  </p>
 	  <!-- -->
           <table class='form'>
@@ -63,28 +66,27 @@
 	      <tr>
 		<td><label for='i_authors'>著者リスト</label></td>
 		<td><input id='i_authors' size=38 type='text'
-			   placeholder='著者A[1][2], 著者B[1],..'></input></td>
+			   placeholder='○発表者A[1,2], 著者B[1],..'></input></td>
 	      </tr>
 	      <tr>
 		<td></td>
-		<td class="sample">例：著者A[1][2], 著者B[1]</td>
+		<td class="sample">例：○発表者A[1,2], 著者B[1]</td>
 	      </tr>
 	      <tr>
 		<td><label for='i_affiliation'>所属リスト</label></td>
 		<td><input id='i_affiliation' size=38 type='text'
-			   placeholder='[1]日本遺伝学大学, [2]国立遺伝学研究所'></input></td>
+			   placeholder='[1]日本遺伝学大学; [2]国立遺伝学研究所'></input></td>
               </tr>
 	      <tr>
 		<td></td>
-		<td class="sample">例：[1]所属A, [2]所属B, [3]所属C</td>
+		<td class="sample">例：[1]所属A; [2]所属B; [3]所属C</td>
 	      <tr>
 	      <tr>
 		<td><label for='i_summary'>要旨</label><br></td>
 		<td><textarea id='i_summary' cols=40 rows=20
 			      placeholder='印刷イメージで字体／字数を確認すること。はみ出した分は印刷されず、このまま印刷されます。
-
-					   ※各著者の所属を所属リストと一致するように[] 内の数字で示してください。番号は上付文字に変換されます。'>
-		  </textarea>
+※各著者の所属を所属リストと一致するように[] 内の数字で示してください。番号は上付文字に変換されます。'>
+</textarea>
 		</td>
 	      </tr>
             </tbody>

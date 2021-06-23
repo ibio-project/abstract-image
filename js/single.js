@@ -11,14 +11,14 @@ let nl = function(a) {
 }
 
 let fix_comma = function(a){
-    const regex=/[,;]\s*/g;
+    const regex=/[,;、，]\s*/g;
     let r=a.replace(regex,", ");
     return nl(r);
 }
 
 // replace [#] to html superscript
 let sup = function(a) {
-    const regex=/\[(\d+)]/g;
+    const regex=/\[([*, \d]+)]/g;
     let r=a.replace(regex,"<sup>$1</sup>");
     return fix_comma(r);
 }
